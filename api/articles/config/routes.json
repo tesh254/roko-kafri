@@ -1,0 +1,99 @@
+{
+  "routes": [{
+      "method": "GET",
+      "path": "/articles",
+      "handler": "articles.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/articles/count",
+      "handler": "articles.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/articles/:id",
+      "handler": "articles.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/articles",
+      "handler": "articles.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/articles/:id",
+      "handler": "articles.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/articles/:id",
+      "handler": "articles.delete",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/articles/collection/:collection_id",
+      "handler": "articles.by_category",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/article/:slug",
+      "handler": "articles.by_slug",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PATCH",
+      "path": "/article/add-view/:slug",
+      "handler": "articles.add_view",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/articles/by-author/:author_id",
+      "handler": "articles.by_author",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/fetch-authors",
+      "handler": "articles.fetch_authors",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/search",
+      "handler": "articles.search_article",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

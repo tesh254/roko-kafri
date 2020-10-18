@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categories",
+  "info": {
+    "name": "Categories"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": false
+    },
+    "category_id": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "articles": {
+      "collection": "articles",
+      "via": "category"
+    },
+    "views": {
+      "type": "biginteger",
+      "default": "0",
+      "required": false
+    }
+  }
+}
