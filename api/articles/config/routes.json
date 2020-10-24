@@ -88,9 +88,9 @@
       }
     },
     {
-      "method": "GET",
-      "path": "/search",
-      "handler": "articles.search_article",
+      "method": "POST",
+      "path": "/articles/quickfind",
+      "handler": "articles.search_articles",
       "config": {
         "policies": []
       }

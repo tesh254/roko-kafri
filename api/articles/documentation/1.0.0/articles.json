@@ -840,13 +840,13 @@
         "parameters": []
       }
     },
-    "/search": {
-      "get": {
+    "/articles/quickfind": {
+      "post": {
         "deprecated": false,
-        "description": "",
+        "description": "Create a new articles record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve articles document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -894,7 +894,21 @@
         "tags": [
           "Articles"
         ],
-        "parameters": []
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   },
@@ -1040,6 +1054,21 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "bio": {
+                "type": "string"
+              },
+              "facebook": {
+                "type": "string"
+              },
+              "twitter": {
+                "type": "string"
+              },
+              "website": {
+                "type": "string"
+              },
+              "youtube": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"

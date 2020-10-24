@@ -576,6 +576,21 @@
                     "type": "string"
                   }
                 },
+                "bio": {
+                  "type": "string"
+                },
+                "facebook": {
+                  "type": "string"
+                },
+                "twitter": {
+                  "type": "string"
+                },
+                "website": {
+                  "type": "string"
+                },
+                "youtube": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },

@@ -68,8 +68,24 @@
       "required": false
     },
     "comments": {
-      "via": "user",
-      "collection": "comments"
+      "collection": "comments",
+      "via": "user"
+    },
+    "bio": {
+      "type": "richtext",
+      "default": "No Bio"
+    },
+    "facebook": {
+      "type": "string"
+    },
+    "twitter": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
+    "youtube": {
+      "type": "string"
     }
   }
 }

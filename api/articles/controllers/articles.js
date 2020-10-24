@@ -47,10 +47,6 @@ module.exports = {
 
     ctx.send(article);
   },
-
-  // _sort: ctx.query._sort,
-  // _limit: ctx.query._limit,
-
   async by_author(ctx) {
     const articles = await strapi.query("articles").find({
       author: ctx.params.author_id,
@@ -59,6 +55,23 @@ module.exports = {
 
     ctx.send({
       articles,
+    });
+  },
+  async search_articles(ctx) {
+    const results = await INDEX.search(ctx.query._q, {
+      getRankingInfo: true,
+      analytics: true,
+      hitsPerPage: 250,
+      // attributesToRetrieve: "*",
+      // attributesToSnippet: "*:20",
+      // snippetEllipsisText: "…",
+      // responseFields: "*",
+      // page: 0,
+      // facets: ["*"],
+    });
+
+    ctx.send({
+      hits: results.hits,
     });
   },
 
@@ -81,32 +94,6 @@ module.exports = {
     );
 
     ctx.send(updatedArticle);
-  },
-
-  async search_article(ctx) {
-    INDEX.search(ctx.query.q, {
-      getRankingInfo: true,
-      analytics: false,
-      enableABTest: false,
-      hitsPerPage: 100,
-      attributesToRetrieve: "*",
-      attributesToSnippet: "*:20",
-      snippetEllipsisText: "…",
-      responseFields: "*",
-      page: 0,
-      facets: ["*"],
-    })
-      .then(({ hits }) => {
-        return {
-          articles: hits,
-        };
-      })
-      .catch((err) => {
-        return {
-          message: err.message,
-          ...err,
-        };
-      });
   },
 
   async fetch_authors(ctx) {
