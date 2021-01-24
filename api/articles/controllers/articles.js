@@ -45,16 +45,6 @@ module.exports = {
       slug: ctx.params.slug,
     });
 
-    const email = await strapi.plugins["email"].services.email.send({
-      to: "ewachira254@gmail.com",
-      replyTo: "samerika@roko.store",
-      subject: "Use strapi email provider successfully",
-      text: "Hello world!",
-      html: "Hello world!",
-    });
-
-    console.log(email)
-
     ctx.send(article);
   },
   async by_author(ctx) {
