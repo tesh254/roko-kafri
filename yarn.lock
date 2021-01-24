@@ -5918,7 +5918,7 @@ lodash@4.17.19:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
   integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
 
-lodash@^4.1.1, lodash@^4.15.0, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.3, lodash@^4.17.4:
+lodash@4.17.20, lodash@^4.1.1, lodash@^4.15.0, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.3, lodash@^4.17.4:
   version "4.17.20"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
@@ -6600,6 +6600,11 @@ nodemailer-shared@1.1.0:
   integrity sha1-z1mU4v0mjQD1zw+nZ6CBae2wfsA=
   dependencies:
     nodemailer-fetch "1.6.0"
+
+nodemailer@6.4.17:
+  version "6.4.17"
+  resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-6.4.17.tgz#8de98618028953b80680775770f937243a7d7877"
+  integrity sha512-89ps+SBGpo0D4Bi5ZrxcrCiRFaMmkCt+gItMXQGzEtZVR3uAD3QAQIDoxTWnx3ky0Dwwy/dhFrQ+6NNGXpw/qQ==
 
 noop-logger@^0.1.1:
   version "0.1.1"
@@ -9390,6 +9395,14 @@ strapi-plugin-users-permissions@3.2.4:
     strapi-helper-plugin "3.2.4"
     strapi-utils "3.2.4"
     uuid "^3.1.0"
+
+strapi-provider-email-nodemailer@^3.4.4:
+  version "3.4.4"
+  resolved "https://registry.yarnpkg.com/strapi-provider-email-nodemailer/-/strapi-provider-email-nodemailer-3.4.4.tgz#27abbcf4b9de60a45f5195f543bf0b4c0b573e42"
+  integrity sha512-XVhjvK7AyuiymhpSI9LS2V8vY/Eg6Roaeyo3en6Cyxnj/OLitAUn0M/HUmfL7MGTRK5tboPxhQdz/PpCGIbFJw==
+  dependencies:
+    lodash "4.17.20"
+    nodemailer "6.4.17"
 
 strapi-provider-email-sendmail@3.2.4:
   version "3.2.4"

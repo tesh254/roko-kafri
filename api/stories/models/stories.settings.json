@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stories",
+  "info": {
+    "name": "Stories",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "articles": {
+      "collection": "articles"
+    },
+    "views": {
+      "type": "biginteger"
+    }
+  }
+}

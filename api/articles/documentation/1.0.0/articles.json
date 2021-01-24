@@ -1116,6 +1116,12 @@
               "views": {
                 "type": "integer"
               },
+              "category_images": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },

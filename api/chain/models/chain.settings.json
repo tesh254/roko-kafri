@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "chains",
+  "info": {
+    "name": "Chain"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "articles": {
+      "collection": "articles"
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

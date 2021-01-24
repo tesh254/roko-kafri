@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/categories": {
+    "/stories": {
       "get": {
         "deprecated": false,
-        "description": "Find all the categories's records",
+        "description": "Find all the stories's records",
         "responses": {
           "200": {
-            "description": "Retrieve categories document(s)",
+            "description": "Retrieve stories document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Categories"
+                    "$ref": "#/components/schemas/Stories"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Categories"
+          "Stories"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new categories record",
+        "description": "Create a new stories record",
         "responses": {
           "200": {
-            "description": "Retrieve categories document(s)",
+            "description": "Retrieve stories document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Categories"
+                  "$ref": "#/components/schemas/Stories"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Categories"
+          "Stories"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCategories"
+                "$ref": "#/components/schemas/NewStories"
               }
             }
           }
         }
       }
     },
-    "/categories/count": {
+    "/stories/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of categories documents",
+        "description": "Retrieve the numver of stories documents",
         "responses": {
           "200": {
-            "description": "Retrieve categories document(s)",
+            "description": "Retrieve stories document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Categories"
+          "Stories"
         ],
         "parameters": []
       }
     },
-    "/categories/{id}": {
+    "/stories/{id}": {
       "get": {
         "deprecated": false,
-        "description": "Find one categories record",
+        "description": "Find one stories record",
         "responses": {
           "200": {
-            "description": "Retrieve categories document(s)",
+            "description": "Retrieve stories document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Categories"
+                  "$ref": "#/components/schemas/Stories"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Categories"
+          "Stories"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single categories record",
+        "description": "Update a single stories record",
         "responses": {
           "200": {
-            "description": "Retrieve categories document(s)",
+            "description": "Retrieve stories document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Categories"
+                  "$ref": "#/components/schemas/Stories"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Categories"
+          "Stories"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCategories"
+                "$ref": "#/components/schemas/NewStories"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single categories record",
+        "description": "Delete a single stories record",
         "responses": {
           "200": {
-            "description": "deletes a single categories based on the ID supplied",
+            "description": "deletes a single stories based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Categories"
+          "Stories"
         ],
         "parameters": [
           {
@@ -514,7 +514,7 @@
   },
   "components": {
     "schemas": {
-      "Categories": {
+      "Stories": {
         "required": [
           "id"
         ],
@@ -522,136 +522,59 @@
           "id": {
             "type": "string"
           },
-          "name": {
+          "Name": {
             "type": "string"
           },
-          "category_id": {
-            "type": "uid"
-          },
           "articles": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "title",
-                "description",
-                "body",
-                "cover_image",
-                "slug"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "body": {
-                  "type": "string"
-                },
-                "cover_image": {
-                  "type": "string"
-                },
-                "author": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "uid"
-                },
-                "is_approved": {
-                  "type": "boolean"
-                },
-                "views": {
-                  "type": "integer"
-                },
-                "is_draft": {
-                  "type": "boolean"
-                },
-                "category": {
-                  "type": "string"
-                },
-                "comments": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "views": {
-            "type": "integer",
-            "default": "0"
-          },
-          "category_images": {
             "required": [
               "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
+              "title",
+              "description",
+              "body",
+              "cover_image",
+              "slug"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "name": {
+              "title": {
                 "type": "string"
               },
-              "alternativeText": {
+              "description": {
                 "type": "string"
               },
-              "caption": {
+              "body": {
                 "type": "string"
               },
-              "width": {
+              "cover_image": {
+                "type": "string"
+              },
+              "author": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "uid"
+              },
+              "is_approved": {
+                "type": "boolean"
+              },
+              "views": {
                 "type": "integer"
               },
-              "height": {
-                "type": "integer"
+              "is_draft": {
+                "type": "boolean"
               },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
+              "category": {
                 "type": "string"
               },
-              "ext": {
-                "type": "string"
+              "comments": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "previewUrl": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "provider_metadata": {
-                "type": "object"
-              },
-              "related": {
+              "published_at": {
                 "type": "string"
               },
               "created_by": {
@@ -662,8 +585,8 @@
               }
             }
           },
-          "description": {
-            "type": "string"
+          "views": {
+            "type": "integer"
           },
           "published_at": {
             "type": "string",
@@ -671,26 +594,16 @@
           }
         }
       },
-      "NewCategories": {
+      "NewStories": {
         "properties": {
-          "name": {
+          "Name": {
             "type": "string"
-          },
-          "category_id": {
-            "type": "uid"
           },
           "articles": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "type": "string"
           },
           "views": {
-            "type": "integer",
-            "default": "0"
-          },
-          "description": {
-            "type": "string"
+            "type": "integer"
           },
           "published_at": {
             "type": "string",
@@ -708,7 +621,7 @@
   },
   "tags": [
     {
-      "name": "Categories"
+      "name": "Stories"
     }
   ]
 }

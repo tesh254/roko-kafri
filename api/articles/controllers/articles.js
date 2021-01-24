@@ -45,6 +45,16 @@ module.exports = {
       slug: ctx.params.slug,
     });
 
+    const email = await strapi.plugins["email"].services.email.send({
+      to: "ewachira254@gmail.com",
+      replyTo: "samerika@roko.store",
+      subject: "Use strapi email provider successfully",
+      text: "Hello world!",
+      html: "Hello world!",
+    });
+
+    console.log(email)
+
     ctx.send(article);
   },
   async by_author(ctx) {
@@ -58,16 +68,9 @@ module.exports = {
     });
   },
   async search_articles(ctx) {
-    const results = await INDEX.search(ctx.query._q, {
-      getRankingInfo: true,
-      analytics: true,
-      hitsPerPage: 250,
-      // attributesToRetrieve: "*",
-      // attributesToSnippet: "*:20",
-      // snippetEllipsisText: "…",
-      // responseFields: "*",
-      // page: 0,
-      // facets: ["*"],
+    const results = await strapi.query("articles").search({
+      _q: ctx.request.body.query,
+      _limit: ctx.query.limit || 50,
     });
 
     ctx.send({

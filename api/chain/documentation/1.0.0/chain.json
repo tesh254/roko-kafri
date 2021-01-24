@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/categories": {
+    "/chains": {
       "get": {
         "deprecated": false,
-        "description": "Find all the categories's records",
+        "description": "",
         "responses": {
           "200": {
-            "description": "Retrieve categories document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Categories"
+                    "$ref": "#/components/schemas/Chain"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Categories"
+          "Chain"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new categories record",
+        "description": "Create a new record",
         "responses": {
           "200": {
-            "description": "Retrieve categories document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Categories"
+                  "$ref": "#/components/schemas/Chain"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Categories"
+          "Chain"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCategories"
+                "$ref": "#/components/schemas/NewChain"
               }
             }
           }
         }
       }
     },
-    "/categories/count": {
+    "/chains/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of categories documents",
+        "description": "",
         "responses": {
           "200": {
-            "description": "Retrieve categories document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Categories"
+          "Chain"
         ],
         "parameters": []
       }
     },
-    "/categories/{id}": {
+    "/chains/{id}": {
       "get": {
         "deprecated": false,
-        "description": "Find one categories record",
+        "description": "",
         "responses": {
           "200": {
-            "description": "Retrieve categories document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Categories"
+                  "$ref": "#/components/schemas/Chain"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Categories"
+          "Chain"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single categories record",
+        "description": "Update a record",
         "responses": {
           "200": {
-            "description": "Retrieve categories document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Categories"
+                  "$ref": "#/components/schemas/Chain"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Categories"
+          "Chain"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCategories"
+                "$ref": "#/components/schemas/NewChain"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single categories record",
+        "description": "Delete a record",
         "responses": {
           "200": {
-            "description": "deletes a single categories based on the ID supplied",
+            "description": "deletes a single record based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Categories"
+          "Chain"
         ],
         "parameters": [
           {
@@ -514,9 +514,10 @@
   },
   "components": {
     "schemas": {
-      "Categories": {
+      "Chain": {
         "required": [
-          "id"
+          "id",
+          "description"
         ],
         "properties": {
           "id": {
@@ -525,133 +526,56 @@
           "name": {
             "type": "string"
           },
-          "category_id": {
-            "type": "uid"
-          },
           "articles": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "title",
-                "description",
-                "body",
-                "cover_image",
-                "slug"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "body": {
-                  "type": "string"
-                },
-                "cover_image": {
-                  "type": "string"
-                },
-                "author": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "uid"
-                },
-                "is_approved": {
-                  "type": "boolean"
-                },
-                "views": {
-                  "type": "integer"
-                },
-                "is_draft": {
-                  "type": "boolean"
-                },
-                "category": {
-                  "type": "string"
-                },
-                "comments": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "views": {
-            "type": "integer",
-            "default": "0"
-          },
-          "category_images": {
             "required": [
               "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
+              "title",
+              "description",
+              "body",
+              "cover_image",
+              "slug"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "name": {
+              "title": {
                 "type": "string"
               },
-              "alternativeText": {
+              "description": {
                 "type": "string"
               },
-              "caption": {
+              "body": {
                 "type": "string"
               },
-              "width": {
+              "cover_image": {
+                "type": "string"
+              },
+              "author": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "uid"
+              },
+              "is_approved": {
+                "type": "boolean"
+              },
+              "views": {
                 "type": "integer"
               },
-              "height": {
-                "type": "integer"
+              "is_draft": {
+                "type": "boolean"
               },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
+              "category": {
                 "type": "string"
               },
-              "ext": {
-                "type": "string"
+              "comments": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "previewUrl": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "provider_metadata": {
-                "type": "object"
-              },
-              "related": {
+              "published_at": {
                 "type": "string"
               },
               "created_by": {
@@ -671,23 +595,16 @@
           }
         }
       },
-      "NewCategories": {
+      "NewChain": {
+        "required": [
+          "description"
+        ],
         "properties": {
           "name": {
             "type": "string"
           },
-          "category_id": {
-            "type": "uid"
-          },
           "articles": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "views": {
-            "type": "integer",
-            "default": "0"
+            "type": "string"
           },
           "description": {
             "type": "string"
@@ -708,7 +625,7 @@
   },
   "tags": [
     {
-      "name": "Categories"
+      "name": "Chain"
     }
   ]
 }
