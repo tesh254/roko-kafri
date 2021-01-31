@@ -1,5 +1,6 @@
 {
-  "routes": [{
+  "routes": [
+    {
       "method": "GET",
       "path": "/articles",
       "handler": "articles.find",
@@ -75,6 +76,14 @@
       "method": "GET",
       "path": "/articles/by-author/:author_id",
       "handler": "articles.by_author",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/articles/own-articles/:author_id",
+      "handler": "articles.own_articles",
       "config": {
         "policies": []
       }

@@ -15,4 +15,12 @@ module.export = ({ env }) => ({
       defaultReplyTo: "kafri@roko.store",
     },
   },
+  upload: {
+    provider: "cloudinary",
+    providerOptions: {
+      cloud_name: "anotherone",
+      api_key: "999489497197773",
+      api_secret: "gCwKBoo4nXSmIpMqoJvNK2ASCdw",
+    },
+  },
 });

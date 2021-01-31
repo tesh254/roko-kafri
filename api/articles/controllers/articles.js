@@ -32,7 +32,7 @@ module.exports = {
 
     const articles = await strapi
       .query("articles")
-      .find({ category: ctx.params.collection_id });
+      .find({ category: ctx.params.collection_id, is_draft: false });
 
     ctx.send({
       articles,
@@ -51,16 +51,30 @@ module.exports = {
     const articles = await strapi.query("articles").find({
       author: ctx.params.author_id,
       _sort: "created_at:desc",
+      is_draft: false,
     });
 
     ctx.send({
       articles,
     });
   },
+
+  async own_articles(ctx) {
+    const articles = await strapi.query("articles").find({
+      author: ctx.params.author_id,
+      _sort: "created_at:desc",
+    });
+
+    ctx.send({
+      articles,
+    });
+  },
+
   async search_articles(ctx) {
     const results = await strapi.query("articles").search({
       _q: ctx.request.body.query,
       _limit: ctx.query.limit || 50,
+      is_draft: false,
     });
 
     ctx.send({
@@ -97,5 +111,24 @@ module.exports = {
     return {
       authors,
     };
+  },
+
+  async find(ctx) {
+    let entities;
+
+    ctx.query = {
+      ...ctx.query,
+      is_draft: false,
+    };
+
+    if (ctx.query._q) {
+      entities = await strapi.services.articles.search(ctx.query);
+    } else {
+      entities = await strapi.services.articles.find(ctx.query);
+    }
+
+    return entities.map((entity) =>
+      sanitizeEntity(entity, { model: strapi.models.articles })
+    );
   },
 };

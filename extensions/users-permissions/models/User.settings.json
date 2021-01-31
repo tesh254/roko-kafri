@@ -86,6 +86,10 @@
     },
     "youtube": {
       "type": "string"
+    },
+    "chains": {
+      "via": "owner",
+      "collection": "chain"
     }
   }
 }
